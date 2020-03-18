@@ -55,8 +55,52 @@
 		</div>
 		<script>
 			window.onload=function(){
-				hp3d(document.getElementById('hello'),['#333','#333','#333','#333','#333','#333','#333','#333'],'#fff');
+				var hxgn = hp3d(document.getElementById('hello'),['#333','#333','#333','#333','#333','#333','#333','#333'],'#fff');
 				mousecont(document,document.getElementsByClassName('hxgn')[0]);
+				var faces = hxgn.childNodes;
+				for(var i=0;i<faces.length;i++)
+				{
+				  faces[i].style.border="0.5px solid #000";
+				  faces[i].style.background="aqua";
+				  faces[i].style.opacity="0.6";
+				}
+			};
+			alert("The mouse control on this page is not the part of the library.\n Its just an example use of library.")
+			function mousecont(elm,hxgn){
+				
+				var lastMouseX = 0,
+					lastMouseY = 0;
+				var rotX = 0,
+					rotY = 0;
+
+				$(elm).on("mousedown", function(ev) {
+					lastMouseX = ev.clientX;
+					lastMouseY = ev.clientY;
+					$(elm).on("mousemove", mouseMoved);
+				});
+				$(elm).on("mouseup", function() {
+					$(elm).off("mousemove", mouseMoved);
+				});
+
+				function mouseMoved(ev) {
+					var deltaX = ev.pageX - lastMouseX;
+					var deltaY = ev.pageY - lastMouseY;
+					lastMouseX = ev.pageX;
+					lastMouseY = ev.pageY;
+					rotY += deltaX * 0.4;
+					rotX -= deltaY * 0.4;
+					if(rotX<0){
+						rotX=360-(-rotX%360);
+					}
+					else{
+						rotX=rotX%360;
+					}
+					if(rotX>90&&rotX<270)
+					{
+						rotY-=2*deltaX*0.4;
+					}
+					$(hxgn).css("transform", "rotateX( " + rotX + "deg) rotateY(" + rotY + "deg)");
+				}
 			}
 		</script>
 				
