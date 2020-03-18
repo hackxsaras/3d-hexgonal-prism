@@ -26,10 +26,7 @@
 				transform:translateX(-50%) translateY(-50%);
 				position:absolute;
 			}
-			@-webkit-keyframes rot2{
-				from{transform:translateX(-50%) translateY(-50%) rotate(0deg); }
-				to{transform:translateX(-50%) translateY(-50%) rotate(360deg); }
-			}
+			
 			@-webkit-keyframes rot{
 				from{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
 				to{transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
@@ -52,6 +49,13 @@
 				  faces[i].style.border="0.5px solid #000";
 				  faces[i].style.background="aqua";
 				  faces[i].style.opacity="0.6";
+				}
+				hxgn.style.webkitAnimation="rot 20s linear infinite";
+				hxgn.onmouseover=function(){
+					hxgn.style.webkitAnimation="none";
+				}
+				hxgn.onmouseout=function(){
+					hxgn.style.webkitAnimation="rot 20s linear infinite";
 				}
 			};
 			alert("The mouse control on this page is not the part of the library.\n Its just an example use of library.")
