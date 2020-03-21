@@ -26,11 +26,6 @@
 				transform:translateX(-50%) translateY(-50%);
 				position:absolute;
 			}
-			
-			@-webkit-keyframes rot{
-				from{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-				to{transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-			}
 		</style>
 	</head>
 	<body>
@@ -50,13 +45,6 @@
 				  faces[i].style.background="aqua";
 				  faces[i].style.opacity="0.6";
 				}
-				hxgn.style.webkitAnimation="rot 20s linear infinite";
-				hxgn.onmouseover=function(){
-					hxgn.style.webkitAnimation="none";
-				}
-				hxgn.onmouseout=function(){
-					hxgn.style.webkitAnimation="rot 20s linear infinite";
-				}
 			};
 			alert("The mouse control on this page is not the part of the library.\n Its just an example use of library.")
 			function mousecont(elm,hxgn){
@@ -69,10 +57,10 @@
 				$(body).on("mousedown", function(ev) {
 					lastMouseX = ev.clientX;
 					lastMouseY = ev.clientY;
-					$(elm).on("mousemove", mouseMoved);
+					$(body).on("mousemove", mouseMoved);
 				});
-				$(elm).on("mouseup", function() {
-					$(elm).off("mousemove", mouseMoved);
+				$(body).on("mouseup", function() {
+					$(body).off("mousemove", mouseMoved);
 				});
 
 				function mouseMoved(ev) {
