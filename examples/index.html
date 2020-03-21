@@ -65,8 +65,8 @@
 					lastMouseY = 0;
 				var rotX = 0,
 					rotY = 0;
-
-				$(elm).on("mousedown", function(ev) {
+				var body = document.body;
+				$(body).on("mousedown", function(ev) {
 					lastMouseX = ev.clientX;
 					lastMouseY = ev.clientY;
 					$(elm).on("mousemove", mouseMoved);
