@@ -30,11 +30,11 @@ function hp3d(elm){
 		fcs[i].style.webkitClipPath="polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)";
 		fcs[i].style.clipPath="polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)";
 		fcs[i].style.transformStyle='preserve-3d';
-		fcs[i].style.transform='translateX('+(-elm.offsetWidth/2)+'px) rotateX('+rotX+'deg) translateZ('+(-elm.offsetWidth*87.5/100)+'px)';
 		hxgn.appendChild(fcs[i]);
-		rotX+=180;
 	}
 	var solve=elm.offsetHeight-elm.offsetWidth*87.5/100;
+	fcs[6].style.transform='translateX('+(-elm.offsetWidth/2)+'px) rotate(180deg) rotateY(180deg) rotateX(-90deg) translateZ('+(elm.offsetWidth*87.5/100)+'px)';
+	rotX+=180;
 	fcs[7].style.transform='translateX('+(-elm.offsetWidth/2)+'px) rotate(180deg) rotateY(180deg) rotateX(90deg) translateZ('+solve+'px)';
 	return hxgn;
 }
