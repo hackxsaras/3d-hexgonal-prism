@@ -35,6 +35,6 @@ function hp3d(elm){
 		rotX+=180;
 	}
 	var solve=elm.offsetHeight-elm.offsetWidth*87.5/100;
-	fcs[7].style.transform='translateX('+(-elm.offsetWidth/2)+'px) rotateX(90deg) translateZ('+-solve+'px)';
+	fcs[7].style.transform='translateX('+(-elm.offsetWidth/2)+'px) rotate(180deg) rotateY(180deg) rotateX(90deg) translateZ('+solve+'px)';
 	return hxgn;
 }
